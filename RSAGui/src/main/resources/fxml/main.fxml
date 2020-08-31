@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="478.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.bjm.rsagui.Controller">
+   <children>
+      <TabPane layoutY="86.0" prefHeight="393.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Encrypt">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="25.0" layoutY="15.0" text="Key:">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="keyField" layoutX="139.0" layoutY="20.0" prefHeight="25.0" prefWidth="405.0" />
+                        <TextField fx:id="rsaModuleField" layoutX="226.0" layoutY="56.0" prefHeight="25.0" prefWidth="318.0" />
+                        <Label layoutX="25.0" layoutY="87.0" text="Input:">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="25.0" layoutY="128.0" text="Output:">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="inputField" layoutX="139.0" layoutY="92.0" prefHeight="25.0" prefWidth="406.0" />
+                        <Button layoutX="43.0" layoutY="307.0" mnemonicParsing="false" onAction="#encrypt" prefHeight="43.0" prefWidth="515.0" text="Encrypt" />
+                        <Label layoutX="25.0" layoutY="50.0" text="RSA Module (N):">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Label>
+                        <TextArea fx:id="outputArea" editable="false" layoutX="139.0" layoutY="128.0" prefHeight="168.0" prefWidth="405.0" />
+                        <Label layoutX="25.0" layoutY="164.0" text="Numbers devided by .">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Decrypt">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="decryptKey" layoutX="149.0" layoutY="40.0" prefHeight="25.0" prefWidth="405.0" />
+                        <TextField fx:id="decryptRSAM" layoutX="236.0" layoutY="85.0" prefHeight="25.0" prefWidth="318.0" />
+                        <Label layoutX="41.0" layoutY="79.0" text="RSA Module (N):">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="41.0" layoutY="34.0" text="Key:">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="41.0" layoutY="125.0" text="Input:">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Label>
+                        <TextArea fx:id="inputArea" layoutX="149.0" layoutY="125.0" prefHeight="122.0" prefWidth="405.0" />
+                        <Label layoutX="41.0" layoutY="257.0" text="Output:">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="decryptOutputField" editable="false" layoutX="149.0" layoutY="263.0" prefHeight="25.0" prefWidth="405.0" />
+                        <Button layoutX="38.0" layoutY="304.0" mnemonicParsing="false" onAction="#decrypt" prefHeight="45.0" prefWidth="517.0" text="Decrypt" />
+                        <Label layoutX="41.0" layoutY="161.0" text="Numbers devided by .">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+          <Tab text="Keys">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="33.0" layoutY="108.0" text="Private Key:">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="37.0" layoutY="149.0" text="Public Key:">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="privateKeyField" editable="false" layoutX="173.0" layoutY="113.0" prefHeight="25.0" prefWidth="406.0" />
+                        <Button layoutX="37.0" layoutY="34.0" mnemonicParsing="false" onAction="#generateKeys" prefHeight="51.0" prefWidth="537.0" text="Generate Keys" />
+                        <Label layoutX="37.0" layoutY="208.0" text="RSA Module (N):">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="publicKeyField" editable="false" layoutX="180.0" layoutY="155.0" prefHeight="25.0" prefWidth="398.0" />
+                        <TextField fx:id="rsaModule" editable="false" layoutX="233.0" layoutY="214.0" prefHeight="25.0" prefWidth="346.0" />
+                        <Label layoutX="35.0" layoutY="286.0" text="This might take some time depending on your computer speed">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+      <Label layoutX="190.0" layoutY="14.0" text="RSA Encryptor">
+         <font>
+            <Font size="35.0" />
+         </font>
+      </Label>
+      <Label layoutX="216.0" layoutY="59.0" text="by Benjamin J. Meyer">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
